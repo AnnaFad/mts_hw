@@ -1,6 +1,11 @@
 Фадеева Анна ДЗ2
-
-Для начала заходим в сиситему и запускаем hadoop если он ещё не запущен (см дз1)
+Скачиваем файлы script1.sh и script2.sh и в командной строке заходим в папку, где они хранятся.
+Перекидываем эти файлы на jn (вместо  team@176.109.91.10 указать свои парамеры точки входа в систему)
+```
+scp script1 team@176.109.91.10:
+scp script2 team@176.109.91.10:
+```
+Заходим в сиситему и запускаем hadoop если он ещё не запущен (см дз1)
 
 На jn настариваем nginx для namenoode 
 Если есть файл /etc/nginx/sites-available/nn, то проверяем, что в нём прописан порт 9870.
@@ -36,7 +41,8 @@ server {
 ```
 ssh -L 9870:<название NameNode, в моём случае tmpl-nn>:9870 team@176.109.91.10 
 ```
-team@176.109.91.10 - точка входа
+Вместо team@176.109.91.10 указать свои параметры точки входа.
+
 При переходе на localhost:9870 в браузере будет отображаться веб-интерфейс Namenode.
 
 Равернём Yarn
@@ -94,7 +100,7 @@ vim mapred-site.xml
 	</property>
 </configuration>
 ```
-Копируем файлы mapred-site.xml и yarn-site.xml на все ноды(для моего случая):
+Копируем файлы mapred-site.xml и yarn-site.xml на все ноды:
 ```
 scp mapred-site.xml tmpl-dn-00:/home/hadoop/hadoop-3.4.0/etc/hadoop
 scp mapred-site.xml tmpl-dn-01:/home/hadoop/hadoop-3.4.0/etc/hadoop
