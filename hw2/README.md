@@ -1,9 +1,14 @@
 Фадеева Анна ДЗ2
 Скачиваем файлы script1.sh и script2.sh и в командной строке заходим в папку, где они хранятся.
-Перекидываем эти файлы на jn (вместо  team@176.109.91.10 указать свои парамеры точки входа в систему)
+Перекидываем эти файлы на jn (вместо  team@176.109.91.10 указать свои парамеры точки входа в систему USER@PORT) 
 ```
 scp script1 team@176.109.91.10:
 scp script2 team@176.109.91.10:
+```
+На jn перекидываем скрипты  в пользователя hadoop
+```
+sudo cp /home/USER/script1.sh /home/hadoop/script1.sh
+sudo cp /home/USER/script2.sh /home/hadoop/script2.sh
 ```
 Заходим в сиситему и запускаем hadoop если он ещё не запущен (см дз1)
 
@@ -100,26 +105,20 @@ vim mapred-site.xml
 	</property>
 </configuration>
 ```
+Вернуться в корневую папку польхователя hadoop.
 Копируем файлы mapred-site.xml и yarn-site.xml на все ноды:
 ```
-scp mapred-site.xml tmpl-dn-00:/home/hadoop/hadoop-3.4.0/etc/hadoop
-scp mapred-site.xml tmpl-dn-01:/home/hadoop/hadoop-3.4.0/etc/hadoop
-scp mapred-site.xml tmpl-nn:/home/hadoop/hadoop-3.4.0/etc/hadoop
-
-scp yarn-site.xml tmpl-dn-00:/home/hadoop/hadoop-3.4.0/etc/hadoop
-scp yarn-site.xml tmpl-dn-01:/home/hadoop/hadoop-3.4.0/etc/hadoop
-scp yarn-site.xml tmpl-nn:/home/hadoop/hadoop-3.4.0/etc/hadoop
+sh script1.sh
+```
+Перекидываем script2.sh на nn
+```
+scp script2.sh tmpl-nn:
 ```
 Переходим на namenode.
-Запускаем Yarn командой:
+Запускаем Yarn и Historyserver скриптом:
 ```
-hadoop-3.4.0/sbin/start-yarn.sh
+sh script2.sh
 ```
-Запускаем Historyserver
-```
-mapred --daemon start historyserver
-```
-
 Для работы MapReduce нужно создать map.py и reduce.py в зависимости от файла с данными и целей, с которыми файл обрабатывается.
 
 Выходим из пользователя hadoop  и возвращаемся jn
