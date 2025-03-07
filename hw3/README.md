@@ -83,6 +83,7 @@ cd lib
 vim hive-site.xml
 ```
 Вставляем:
+```
 <configuration>
    <property>
        <name>hive.server2.authentication</name>
