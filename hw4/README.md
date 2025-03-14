@@ -131,7 +131,7 @@ df = df.withColumn("Mother Education", df["Mother Education"].cast(IntegerType()
 df = df.withColumn("Grade", df["Grade"].cast(DoubleType())) 
 
 
-df = df.withColumn("Grade", 
+df = df.withColumn("Grade_classes", 
                    F.when(df["Grade"] < 50, "Low")
                     .when((df["Grade"] >= 50) & (df["Grade"] < 80), "Medium")
                     .otherwise("High"))
