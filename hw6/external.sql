@@ -1,4 +1,4 @@
-CREATE EXTERNAL TABLE gameandgrade_external (
+CREATE EXTERNAL TABLE team32_external (
     Sex BOOLEAN,
     School_code INT,
     Playing_years INT,
