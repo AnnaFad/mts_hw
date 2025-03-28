@@ -1,4 +1,4 @@
-CREATE TABLE gameandgrade_managed (
+CREATE TABLE team32_managed (
     Sex BOOLEAN,
     School_code INT,
     Playing_years INT,
@@ -10,4 +10,4 @@ CREATE TABLE gameandgrade_managed (
     Mother_education INT,
     Grade DOUBLE PRECISION
 );
-INSERT INTO  gameandgrade_managed SELECT * FROM  gameandgrade_external;
+INSERT INTO  team32_managed SELECT * FROM  team32_external;
