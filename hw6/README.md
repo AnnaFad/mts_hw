@@ -17,9 +17,9 @@ psql -d idp
 ```
 Можем выполнить несколько запросов для проверки:
 ```
-SELECT * FROM gameandgrade_external
+SELECT * FROM team32_external
 LIMIT 5;
-SELECT * FROM gameandgrade_managed
+SELECT * FROM team32_managed
 LIMIT 5;
-SELECT AVG(Grade) FROM gameandgrade_external;
+SELECT AVG(Grade) FROM team32_external;
 ```
